@@ -15,10 +15,6 @@ for _ in xrange(num_points):
 x_set = [p[0] for p in data_set]
 y_set = [p[1] for p in data_set]
 
-# plot the original data into figure
-data_fig = plt.figure('data_figure')
-plt.plot(x_set, y_set, 'ro', label='original_data')
-
 # define the symbolic variables we will use
 x = T.fscalar('x')
 y = T.fscalar('y')
@@ -52,6 +48,12 @@ for i in xrange(max_epoches):
         y_pred.append(this_y)
         total_loss += this_loss
     print "Loss of epoch "+str(i)+":", total_loss
+    # plot the original data into figure
+    data_fig = plt.figure('data_figure')
+    plt.plot(x_set, y_set, 'ro', label='original_data')
     plt.plot(x_set, y_pred, 'go', label='pred_data')
     data_fig.show()
     raw_input()
+    data_fig.clear()
+
+print "W value:", W.get_value(), 'b value:', b.get_value()

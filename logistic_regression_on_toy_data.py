@@ -8,7 +8,7 @@ num_points = 1000
 data_set = []
 
 for _ in xrange(num_points):
-    x = np.random.uniform(low=0.0, high=6.28)
+    x = np.random.uniform(low=0.0, high=5.20)
     y = 3 * x + 2
     data_set.append([x, y])
 

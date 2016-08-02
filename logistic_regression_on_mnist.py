@@ -19,18 +19,15 @@ def shared_dataset(data_xy):
 
 def load_data(file_name):
     """
-    Load data from mnist data set and turn it into theano shared variable.
+    Load data from mnist data set.
     :param file_name: the path and name of original data
-    :return: list of three tuples, [(train_set_x, train_set_y), (valid_set_x, valid_set_y), (test_set_x, test_set_y)]
+    :return: list of two tuples, [(train_set_x, train_set_y), (test_set_x, test_set_y)]
     """
     print "...loading data"
 
     with gzip.open(file_name, 'rb') as f:
         train_set, test_set = cPickle.load(f)
 
-    # test_set_x, test_set_y = shared_dataset(test_set)
-    # train_set_x, train_set_y = shared_dataset(train_set)
-    # rval = [(train_set_x, train_set_y), (test_set_x, test_set_y)]
     rval = [train_set, test_set]
     return rval
 
@@ -53,14 +50,6 @@ def run(data_file):
     # define loss
     loss = -T.log(y_given_x[0])[y]
 
-    # get_y_given_x = theano.function(inputs=[x], outputs=y_given_x)
-    # get_y_d = theano.function(inputs=[x], outputs=y_d)
-    # get_loss = theano.function(inputs=[x, y], outputs=loss)
-    # print get_y_given_x(train_set_x[0])
-    # print get_y_d(train_set_x[0])
-    # print get_loss(train_set_x[0], train_set_y[0])
-    # exit(0)
-#
     # define the learning rate of sgd
     lr = 0.0001
 

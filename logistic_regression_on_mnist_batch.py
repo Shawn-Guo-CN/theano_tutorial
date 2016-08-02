@@ -69,7 +69,7 @@ def run(data_file):
     detector = theano.function(inputs=[x, y], outputs=error)
 
     # run the optimizer to optimize the model parameters
-    max_epoches = 100
+    max_epoches = 20
     batch_size = 100
     batch_num = train_set_x.shape[0] / batch_size
     test_batch_num = test_set_x.shape[0] / batch_size

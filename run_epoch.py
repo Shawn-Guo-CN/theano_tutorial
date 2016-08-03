@@ -30,6 +30,15 @@ def run_epoch(data_file):
     optimizer = options['optimizer']
     f_grad_shared, f_update = optimizer(lr, tparams, grads, x, y, cost)
 
+    # define the function to test the accuracy of model's perdication
+    detector = theano.function(inputs=[x, y], outputs=model.error)
+
+    # test the performance of random initialized parameters
+    errors = []
+    for x, y in data_iterator(data_file=data_file, batch_size=options['batch_size'], is_train=False):
+        errors.append(detector(x, y))
+    print 'error rate of random initialized parameters: ' + str(np.mean(errors) * 100) + '%'
+
     print '...training'
     # begin optimization with data iterator
     for i in xrange(options['max_epochs']):
@@ -40,6 +49,12 @@ def run_epoch(data_file):
             total_loss += this_cost
             print '\r', 'epoch '+str(i)+':\t', 'current loss:', this_cost,
         print 'total loss:', total_loss
+
+        if (i + 1) % options['valid_freq'] == 0:
+            errors = []
+            for x, y in data_iterator(data_file=data_file, batch_size=options['batch_size'], is_train=False):
+                errors.append(detector(x, y))
+            print '\t erros rate of epoch '+str(i)+': '+str(np.mean(errors)*100)+'%'
 
 if __name__ == '__main__':
     run_epoch('data/mnist.pkl.gz')

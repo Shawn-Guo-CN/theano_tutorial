@@ -57,4 +57,4 @@ def run_epoch(data_file):
             print '\t erros rate of epoch '+str(i)+': '+str(np.mean(errors)*100)+'%'
 
 if __name__ == '__main__':
-    run_epoch('data/mnist.pkl.gz')
+    run_epoch('../data/mnist.pkl.gz')

@@ -1,8 +1,10 @@
 from collections import OrderedDict
 import optimizers
+import models
 
 options = OrderedDict(
     {
+        'model':models.LogisticRegression, # define the model
         'in_size':784, # input dimension
         'hidden_size':400,  # number of hidden units in single layer
         'out_size':10, # number of units in output layer

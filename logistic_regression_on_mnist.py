@@ -39,7 +39,7 @@ def run(data_file):
     loss = -T.log(y_given_x[0])[y]
 
     # define the learning rate of sgd
-    lr = 0.0001
+    lr = 0.001
 
     # define the optimizer to reduce the loss
     g_W = T.grad(loss, W)

@@ -2,10 +2,6 @@ import theano
 import theano.tensor as T
 import numpy as np
 
-import cPickle
-import gzip
-
-import models
 from options import options
 from data_reader import data_iterator
 

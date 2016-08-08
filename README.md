@@ -10,7 +10,7 @@ This is the source code of my Theano tutorial. You can browse it at http://www.s
 4. **logistic_regression_on_mnist_batch.py**: change the above model into a batched version.
 
 5. **models_on_mnist**(python package): contains several different models aiming to address the mnist problem. The functions of every source file are listed as follow:
-    * __init__.py: eh, in fact, this is a automatically generated file, useless in this project.
+    * \_\_init\_\_.py: eh, in fact, this is a automatically generated file, useless in this project.
     * data_reader.py: implements a iterator that can provide batches of data $(x_{i:i+n}, y_{i:i+n})$ in mnist.
     * models.py: contains several different models aiming at perfectly recognize the numbers in mnist.
     * optimizers.py: consists of three optimizing algorithms, i.e. *sgd*, *adadelta* and *rmsprop*. 

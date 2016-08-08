@@ -12,7 +12,7 @@ def run_epoch(data_file):
 
     print '...building model'
     # declare the model to be used
-    model = options['model'](x, y, options['in_size'], options['out_size'])
+    model = options['model'](x, y, options['in_size'], options['out_size'], options['hidden_size'])
 
     # declare the parameters need to be trained
     tparams = {}

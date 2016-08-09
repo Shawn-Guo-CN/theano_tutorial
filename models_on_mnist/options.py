@@ -16,7 +16,7 @@ options = OrderedDict(
         'optimizer':optimizers.adadelta,  # sgd, adadelta and rmsprop available, sgd very hard to use, not recommanded (probably need momentum and decaying learning rate).
         'valid_freq':5,  # Compute the validation error after this number of update.
         'maxlen':100,  # Sequence longer then this get ignored
-        'batch_size':100,  # The batch size during training.
+        'batch_size':200,  # The batch size during training.
         'valid_batch_size':100,  # The batch size used for validation/test set.
         'dataset':'imdb',
     }

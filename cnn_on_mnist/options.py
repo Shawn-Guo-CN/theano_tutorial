@@ -4,7 +4,7 @@ import models
 
 options = OrderedDict(
     {
-        'model':models.MLP, # define the model
+        'model':models.LeNet, # define the model
         'in_size':784, # input dimension
         'hidden_size':1000,  # number of hidden units in single layer
         'out_size':10, # number of units in output layer
@@ -19,5 +19,6 @@ options = OrderedDict(
         'batch_size':100,  # The batch size during training.
         'valid_batch_size':100,  # The batch size used for validation/test set.
         'dataset':'imdb',
+        'nkernals':[20, 50],
     }
 )
